@@ -1,9 +1,6 @@
-
-package unit_5;
-
 import java.util.ArrayList;
 
-public class Unit_5 {
+public class Unit5 {
     static ArrayList al= new ArrayList();
 
     public static void main(String[] args) {
