@@ -76,6 +76,11 @@ public class TaskProgram extends javax.swing.JFrame {
         lblttask.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnfirst.setText("l<");
+        btnfirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnfirstActionPerformed(evt);
+            }
+        });
 
         btnprev.setText("<");
 
@@ -217,7 +222,16 @@ public class TaskProgram extends javax.swing.JFrame {
     }//GEN-LAST:event_btnlastActionPerformed
 
     private void mnuafterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuafterActionPerformed
-        // TODO add your handling code here:
+        String nm=txtname.getText();
+        String d=txtdes.getText();
+        Task t= new Task(nm,d);
+        
+        if (t.validate()==false)
+        {
+            JOptionPane.showMessageDialog(this, "Error- Must enter all information");
+            return;
+        }
+  
     }//GEN-LAST:event_mnuafterActionPerformed
 
     private void mnubeforeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnubeforeActionPerformed
@@ -227,6 +241,10 @@ public class TaskProgram extends javax.swing.JFrame {
     private void mnuexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuexitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_mnuexitActionPerformed
+
+    private void btnfirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfirstActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnfirstActionPerformed
 
     /**
      * @param args the command line arguments
