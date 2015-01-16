@@ -255,10 +255,12 @@ public class TaskProgram extends javax.swing.JFrame {
 
     private void btnlastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlastActionPerformed
         if(curtask==tottask) return;
-        while(li.hasNext());//go to end
-        li.next();
+        while(li.hasNext())
+        {//go to end
+            li.next();
+        }
         t=(Task)li.previous(); // get infront of last task
-        curtask=tottask;
+        curtask=tottask;//current task is last task
         
         //update display
         lblctask.setText("" +curtask);
@@ -313,16 +315,18 @@ public class TaskProgram extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuexitActionPerformed
 
     private void btnfirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfirstActionPerformed
-        if(curtask==tottask) return;
-        while(li.hasPrevious());//go to begining
-        li.next();
-        t=(Task)li.previous(); // get infront of last task
-        curtask=tottask;
-        
-        //update display
-        lblctask.setText("" +curtask);
-        txtname.setText(t.getName());
-        txtdes.setText(t.getDescription());
+        if(curtask==0) return;
+             while(li.hasPrevious())
+             {//go to end
+                 li.previous();
+             }
+             t=(Task)li.previous(); // get infront of last task
+             curtask=0;//current task is last task
+
+             //update display
+             lblctask.setText("" +curtask);
+             txtname.setText(t.getName());
+             txtdes.setText(t.getDescription());
     }//GEN-LAST:event_btnfirstActionPerformed
 
     private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
@@ -396,7 +400,7 @@ public class TaskProgram extends javax.swing.JFrame {
         for (int x=0; x<list.size(); x++)
         {
             t=(Task)list.get(x);
-            result+="Task" + (x+1) + ":\n" + t.toString() + "\n";
+            result+="Task " + (x+1) + ":\n" + t.toString() + "\n";
         }
         
         JOptionPane.showMessageDialog(this, result);
@@ -409,14 +413,15 @@ public class TaskProgram extends javax.swing.JFrame {
     }//GEN-LAST:event_mnurestoreActionPerformed
 
     private void mnuclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuclearActionPerformed
-        this.dispose();
+        txtname.setText("");
+        txtdes.setText("");
     }//GEN-LAST:event_mnuclearActionPerformed
 
     private void btnprevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprevActionPerformed
-        if(curtask==tottask) return;
-        curtask++;
+        if(curtask==0) return;
+        curtask--;
         lblctask.setText("" +curtask);
-        li.previous();//passes over current task
+        li.previous();//passes over previous task
         li.previous();
         t=(Task)li.next();
         

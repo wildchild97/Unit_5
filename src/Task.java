@@ -37,7 +37,7 @@ public class Task {
     }
     
     public String toString() {
-        return "Task{" + "Name: " + name + "\nDescription: " + description + "\n=======\n";
+        return "Task: " + "Name: " + name + "\nDescription: " + description + "\n=======\n";
     }
     
     
